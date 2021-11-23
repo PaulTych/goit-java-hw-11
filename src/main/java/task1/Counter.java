@@ -4,6 +4,7 @@ public class Counter extends Thread {
     private long delta;
     private final int period;
     private final Object monitor;
+    public int seconds;
 
     public Counter(Object monitor, int period) {
         this.period = period;
@@ -27,8 +28,13 @@ public class Counter extends Thread {
     public void counter() {
         try {
             Thread.sleep(period);
+            this.seconds++;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getSeconds() {
+        return seconds;
     }
 }

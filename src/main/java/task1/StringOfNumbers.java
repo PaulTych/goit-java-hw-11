@@ -22,7 +22,7 @@ public class StringOfNumbers {
         synchronized (monitor) {
             while (number <= n) {
                 if (number % 3 == 0 && number % 5 != 0) {
-                    System.out.print("fizz, ");
+                    System.out.print(", fizz");
                     nextNumb();
                     monitor.notifyAll();
                 } else {
@@ -40,7 +40,7 @@ public class StringOfNumbers {
         synchronized (monitor) {
             while (number <= n) {
                 if (number % 3 != 0 && number % 5 == 0) {
-                    System.out.print("buzz, ");
+                    System.out.print(", buzz");
                     nextNumb();
                     monitor.notifyAll();
                 } else {
@@ -58,7 +58,7 @@ public class StringOfNumbers {
         synchronized (monitor) {
             while (number <= n) {
                 if (number % 3 == 0 && number % 5 == 0) {
-                    System.out.print("fizzbuzz, ");
+                    System.out.print(", fizzbuzz");
                     nextNumb();
                     monitor.notifyAll();
                 } else {
@@ -76,7 +76,11 @@ public class StringOfNumbers {
         synchronized (monitor) {
             while (number <= n) {
                 if (number % 3 != 0 && number % 5 != 0) {
-                    System.out.print(number + ", ");
+                    if (number==1) {
+                        System.out.print(number);
+                    } else {
+                        System.out.print(", "+number);
+                    }
                     nextNumb();
                     monitor.notifyAll();
                 } else {
